@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Weather</h1>
+    </header>
+    <main>
+        {% if weather_data %}
+        <section>
+            <h2>Weather in {{ weather_data.name }}</h2>
+            <p>Temperature: {{ weather_data.main.temp }} {{ '°C' if unit == 'metric' else '°F' }}</p>
+            <p>Humidity: {{ weather_data.main.humidity }}%</p>
+            <p>Weather: {{ weather_data.weather[0].description }}</p>
+            <img src="http://openweathermap.org/img/wn/{{ weather_data.weather[0].icon }}@2x.png" alt="Weather icon">
+        </section>
+        {% elif error %}
+        <section>
+            <h2>{{ error }}</h2>
+        </section>
+        {% endif %}
+        <section>
+            <h2>City Search History</h2>
+            <ul>
+                {% for city in city_search_history %}
+                <li>{{ city }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

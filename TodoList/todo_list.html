@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Todo List</h1>
+    <ul class="todo-list">
+        {% for todo in todos %}
+        <li><a href="{{ url_for('todo_details', todo_id=todo.id) }}">{{ todo.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <form class="add-todo-form" action="{{ url_for('add_todo') }}" method="post">
+        <input type="text" name="title" placeholder="Add new todo item">
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

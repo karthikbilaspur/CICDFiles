@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Weather API</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Get the weather for your city</h2>
+            <form action="/weather" method="post">
+                <input type="text" name="city" placeholder="Enter city name">
+                <select name="unit">
+                    <option value="metric">Celsius</option>
+                    <option value="imperial">Fahrenheit</option>
+                </select>
+                <button type="submit">Get Weather</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

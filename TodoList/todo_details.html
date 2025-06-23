@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Todo Details</h1>
+    <div class="todo-details">
+        <p>Title: {{ todo.title }}</p>
+        <p>Done: {{ todo.done }}</p>
+    </div>
+    <form class="update-todo-form" action="{{ url_for('update_todo', todo_id=todo.id) }}" method="post">
+        <input type="text" name="title" value="{{ todo.title }}">
+        <input type="checkbox" name="done" {% if todo.done %}checked{% endif %}>
+        <input type="submit" value="Update">
+    </form>
+    <p><a class="delete-button" href="{{ url_for('delete_todo', todo_id=todo.id) }}">Delete</a></p>
+</body>
+</html>

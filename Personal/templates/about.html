@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="about">
+            <h1>About me</h1>
+            <p>I'm a software developer with a passion for building web applications.</p>
+            <button>Learn More</button>
+        </section>
+        <section class="experience">
+            <h2>Experience</h2>
+            <ul>
+                <li>
+                    <h3>Software Developer</h3>
+                    <p>ABC Company (2020-Present)</p>
+                    <p>Developed multiple web applications using Flask and Python.</p>
+                </li>
+                <li>
+                    <h3>Intern</h3>
+                    <p>XYZ Company (Summer 2019)</p>
+                    <p>Assisted in developing a web application using Django.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Personal Website</p>
+    </footer>
+</body>
+</html>

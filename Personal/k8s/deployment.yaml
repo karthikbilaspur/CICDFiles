@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personal-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: personal-website
+  template:
+    metadata:
+      labels:
+        app: personal-website
+    spec:
+      containers:
+      - name: personal-website
+        image: ${{ secrets.DOCKER_USERNAME }}/personal-website:latest
+        ports:
+        - containerPort: 5000

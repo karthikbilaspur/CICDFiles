@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: weather-api
+  template:
+    metadata:
+      labels:
+        app: weather-api
+    spec:
+      and:
+        - name: weather-api
+          image: gcr.io/${{ secrets.GOOGLE_PROJECT_ID }}/weather-api:latest
+          ports:
+          - containerPort: 5000
+          env:
+          - name: FLASK_APP
+            value: "app.py"
+          - name: FLASK_DEBUG
+            value: "1"

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  weather-api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_DEBUG=1
+    depends_on:
+      - none
+    restart: always

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Map</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Location of {{ city }}</h2>
+           <div id="map" data-lat="{{ lat }}" data-lon="{{ lon }}" data-city="{{ city }}"></div>
+ <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+        </section>
+    </main>
+</body>
+</html>

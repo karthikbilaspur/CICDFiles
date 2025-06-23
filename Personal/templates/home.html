@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to my personal website!</h1>
+            <p>This is a simple website built with Flask and Python.</p>
+            <button>Learn More</button>
+        </section>
+        <section class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Clean Code</h3>
+                    <p>Well-structured and readable code.</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-rocket"></i>
+                    <h3>Fast Deployment</h3>
+                    <p>Quick and easy deployment to production.</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-lock"></i>
+                    <h3>Secure</h3>
+                    <p>Robust security measures to protect your data.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Personal Website</p>
+    </footer>
+</body>
+</html>
