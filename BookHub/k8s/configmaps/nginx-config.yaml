@@ -1,0 +1,17 @@
+# nginx-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+    # Nginx configuration
+
+# init-db.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: init-db
+data:
+  books.sql: |
+    # MySQL initialization script

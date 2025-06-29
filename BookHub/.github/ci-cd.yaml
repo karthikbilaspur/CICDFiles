@@ -1,0 +1,38 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker images
+        run: |
+          docker build -t bookhub:latest ./app
+          docker tag bookhub:latest ${{ secrets.DOCKER_USERNAME }}/bookhub:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/bookhub:latest
+
+      - name: Deploy to Kubernetes
+        uses: kubernetes/deploy-action@v1
+        with:
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+          namespace: bookhub
+          manifests: |
+            k8s/ConfigMaps/nginx-config.yaml
+            k8s/deployments/php-deployment.yaml
+            k8s/deployments/mysql-deployment.yaml
+            k8s/deployments/nginx-deployment.yaml
+            k8s/services/nginx-service.yaml
+            k8s/pvc/www-pvc.yaml

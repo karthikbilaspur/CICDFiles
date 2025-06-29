@@ -1,0 +1,40 @@
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 768px) {
+  /* For mobile devices */
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* For tablets */
+  .container {
+    width: 80%;
+    padding: 40px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  /* For desktops */
+  .container {
+    width: 60%;
+    padding: 60px;
+  }
+}
